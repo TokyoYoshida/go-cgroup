@@ -226,7 +226,7 @@ type (
 )
 
 func (cg Cgroup) AttachTaskPid(pid PID) error {
-	return _err(C.cgroup_attach_task_pid(cg.g, pid))
+	return _err(C.cgroup_attach_task_pid(cg.g, C.pid_t(pid)))
 }
 
 const (
