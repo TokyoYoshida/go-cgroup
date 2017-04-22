@@ -221,6 +221,10 @@ func (cg Cgroup) GetUIDGID() (tasksUID UID, tasksGID GID, controlUID UID, contro
 
 }
 
+func (cg Cgroup) AttachTask(pid PID) error {
+	return _err(C.cgroup_attach_task(cg.g))
+}
+
 type (
 	PID C.pid_t
 )
